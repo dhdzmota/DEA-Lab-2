@@ -1,0 +1,162 @@
+\documentclass[12p]{article}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx}
+\usepackage{cite}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{parskip}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+
+
+\hypersetup{
+	colorlinks= true,       % false: boxed links; true: colored links
+	linkcolor = black,        % color of internal links
+	citecolor = black,        % color of links to bibliography
+	filecolor = black,     % color of file links
+	urlcolor  = black        
+}
+
+
+%\graphicspath{ {/home/chinnas/Documents/ITESO/Septimo/DEA/} }
+
+
+% -----------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\scshape{ \large{INSTITUTO TECNOL\'{O}GICO Y DE ESTUDIOS SUPERIORES DE OCCIDENTE} \par}
+	\vspace{1cm}
+	\scshape{ \large{Analog Electronic Devices} \par}
+	\scshape{ \large{Autumn 2018} \par}  
+	\vspace{0.5cm}
+	%\includegraphics{ITESOlogo.jpg}
+	%{\\}
+	\vspace{0.2cm}
+	\scshape{ \large{LAB EXPERIMENT II} \par}
+	\vspace{0.5cm}
+	\vspace{0.2cm}
+	\scshape{ \large{MOSFET using as an electronic switch} \par}
+	\vspace{1.5cm}
+	\scshape{ {NT704804 CHIÑAS FUENTES KARINA} \par}
+	\vspace{0.2cm}
+	\scshape{ {NT702357 HERN\'{A}NDEZ MOTA DANIEL} \par}
+  \vspace{0.2cm}
+	\scshape{ {NT????? ?????????? ???? ????} \par}
+	\vspace{1.5cm}
+	\scshape{ Prof. Dr. Zabdiel Brito Brito \par}
+	\vspace{0.5cm}
+	\scshape{ Tlaquepaque, Jalisco \par}
+	\scshape{ Publication and delivery date:  26 September 2018 \par}
+	\vfill
+\end{titlepage}
+
+\section{Introduction}
+
+In this lab practice, we expect to design a simple electronic switch using the electrical compoment Enhancement MOSFET. To do this, we expect to obtain the characteristic parameters of a MOSFET by applying a circuit with an OPAMP and start to variate the input voltage to determine which values of voltage is the minimum to keep the transistor working while providing the correct current to the component.
+
+To understand the nature of this lab practice we need to understand what is a MOSFET and how does it work.
+A MOSFET (Metal-Oxide Semiconductor Field-Effect Transistor) is a type of transistor which has a basic principle: apply a voltage in a terminal to control the current flow on the other ones. This current can have values between 0 and a bigger one, leading the circuit to act as a switch \textbf{sedra} . This behaviour can be done due to its physical characteristics. There are P-channel and N-Channel MOSFETS, but the selection of this depends usually on the specific needs of the application.
+
+The N-channel MOSFET has a higher mobility of the carriers (electrons), thus for a high current application it is better to use it \textbf{Semiconductor}.
+
+In order to have the N-MOSFET working, the gate-to-source voltage must be higher than the threshold voltage of the device. If this is not the case, it is said that the transistor is working on the cut region meaning that there is no current flowing, therefore the circuit is open. 
+
+While the MOSFET is on it can work on two different stages: Saturation and Triode. The saturation stage is reached when the channel is strangled due to a large voltage input and therefore the current flows mostly constant, thus the drain current is saturated entering to the Saturation region. 
+This is generally obtained by a voltage $v_{DSsat}$. If the input voltage is less than the saturation voltage, we are working on the triode region.
+
+
+
+\section{Procedure}
+
+Components and instrumentation:
+
+\vspace{0.5cm}
+
+\begin{tabular}{ l l l }
+	\textbullet \ Enhancement MOSFET & \textbullet \ Several resistors & \textbullet \ Digital multimeter \\ 
+	\textbullet \ Motor  & \textbullet \ Voltage Sources & \textbullet \ Cables \\  
+	\textbullet \ Protoboard & \textbullet \ Tweezers & \textbullet \ Oscilloscope \\
+	\textbullet \ OrCad Software  & \textbullet \ OPAMP TL082   &
+\end{tabular}
+
+\vspace{0.5cm}
+
+In order to obtain the characteristic parameters of the MOSFET, a specific circuit had to be created. This circuit can be seen in \textbf{charcircuit}.
+This circuit is a current-voltage converter and will help to obtain the values of $V_{th}$ and $K=\frac{1}{2}\mu_nC_{ox}\left(\frac{W}{L}\right)$.
+With this configuration we can determine the current flowing through the transistor in the OPAMP as 
+
+$$
+  I_{d}=\frac{V_{rd}}{R_d}.
+$$
+
+With this information, it is easy to know $V_{th}$ via the equation 
+$$
+	I_d=k(V_{gs}-V_{th})^2=0.
+$$
+This can be obtained by variating the voltage in the gate therefore, when the current is $0$, the $V_{gs}$ will be the threshold value $V_{th}$. Then, by measuring the current at different points of $V_{gs}$ a value for $K$ can be easily determined applying the formula
+
+$$
+	I_d=\frac{V_{rd}}{R_d}=k(V_{gs}-V_{th})^2 \quad \therefore \quad k=\frac{V_{rd}}{R_d(V_{gs}-V_{th})^2}
+$$
+
+We obtained a value of $V_{th} = $ and the different values of K were given on a \textbf{table1}
+
+\begin{table}{H}
+	\begin{center}
+		\begin{tabular}{|c|*{3}{p{1.5cm}|}}
+			\hline
+			$V_{gs}$ & $V_{rd}$ & $ K$ \\ \hline 
+			 &   &    \\ \hline
+    		 &   &    \\ \hline
+    		 &   &    \\ \hline
+    		 &   &    \\ \hline
+             &   &    \\ \hline
+    		 &   &    \\ \hline
+    		 &   &    \\ \hline
+    		 &   &    \\ \hline
+             &   &    \\ \hline
+    		 &   &    \\ \hline
+             \multicolumn{2}{|c|}{Average $K=$} &  \\ \hline
+    \end{tabular}
+		\label{tab:K}
+    \caption{K values}
+	\end{center}
+\end{table}
+
+
+
+\vspace{0.5cm}
+***FIGURE  charcircuit***
+\vspace{0.5cm}
+
+
+\section{Results}
+
+
+\section{Conclusions}
+
+
+
+\begin{thebibliography}{99}
+
+	\bibitem{Sedra} Sedra, A., Smith, C. (2006) \textit{Circuitos microelectrónicos} 5th edition. Mc Graw Hill: Mexico page: 139-184.
+
+	\bibitem{Semiconductor} Semiconductor Component Industries (2014) \textit{Using MOSFETs in Load Switch Applications}, AND9093/D ON Semiconductor, Retrieved september 19 of 2018 from: \url{http://www.onsemi.com/pub/Collateral/AND9093-D.PDF}
+  
+\end{thebibliography}
+
+
+
+\end{document}
